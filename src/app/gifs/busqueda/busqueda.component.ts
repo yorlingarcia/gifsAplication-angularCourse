@@ -8,8 +8,9 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 export class BusquedaComponent {
   @ViewChild('txtBuscar') txtBuscar!: ElementRef;
 
-  buscar(termino: string): void {
-    console.log(this.txtBuscar);
+  buscar(): void {
+    const valor = this.txtBuscar.nativeElement.value;
+    console.log(valor);
   }
   //document.querySelector('input').value = '';
 }
