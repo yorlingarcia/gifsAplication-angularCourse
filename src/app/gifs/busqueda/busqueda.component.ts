@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-busqueda',
@@ -6,7 +6,10 @@ import { Component } from '@angular/core';
   styles: [],
 })
 export class BusquedaComponent {
+  @ViewChild('txtBuscar') txtBuscar!: ElementRef;
+
   buscar(termino: string): void {
-    console.log(termino);
+    console.log(this.txtBuscar);
   }
+  //document.querySelector('input').value = '';
 }
