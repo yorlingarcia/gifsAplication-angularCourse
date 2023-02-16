@@ -14,9 +14,12 @@ export class GifsService {
   }
 
   constructor(private htttp: HttpClient) {
+    //this._historial = JSON.parse(localStorage.getItem('historial')!) ||  [];
     if (localStorage.getItem('historial')) {
       this._historial = JSON.parse(localStorage.getItem('historial')!);
     }
+    this.resultados =
+      JSON.parse(localStorage.getItem('ultimo_resultado')!) || [];
   }
 
   buscarGifs(query: string = '') {
@@ -34,6 +37,10 @@ export class GifsService {
         // se ejecuta cuando hay solucion del get
         console.log(response.data);
         this.resultados = response.data;
+        localStorage.setItem(
+          'ultimo_resultado',
+          JSON.stringify(this.resultados)
+        );
       });
   }
 }
